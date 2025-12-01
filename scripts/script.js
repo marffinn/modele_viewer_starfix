@@ -38,9 +38,9 @@ function init() {
     scene.add(ambientLight);
 
     // Add flying point lights
-    pointLight1 = new THREE.PointLight(0xff0000, 2, 100);
-    pointLight2 = new THREE.PointLight(0x00ff00, 2, 100);
-    pointLight3 = new THREE.PointLight(0x0000ff, 2, 100);
+    pointLight1 = new THREE.PointLight(0xffffff, 2, 100);
+    pointLight2 = new THREE.PointLight(0xffffff, 2, 100);
+    pointLight3 = new THREE.PointLight(0xffffff, 2, 100);
     scene.add(pointLight1, pointLight2, pointLight3);
 
     window.addEventListener('resize', onWindowResize, false);
