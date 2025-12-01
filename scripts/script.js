@@ -15,8 +15,8 @@ function init() {
     document.getElementById('container').appendChild(renderer.domElement);
 
     // Load environment map
-    const rgbeLoader = new THREE.RGBELoader();
-    rgbeLoader.load('https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/venetian_crossroads_1k.hdr', function (texture) {
+    const exrLoader = new THREE.EXRLoader();
+    exrLoader.load('./assets/env/venetian_crossroads_1k.exr', function (texture) {
         texture.mapping = THREE.EquirectangularReflectionMapping;
         const pmremGenerator = new THREE.PMREMGenerator(renderer);
         const envMap = pmremGenerator.fromEquirectangular(texture).texture;
