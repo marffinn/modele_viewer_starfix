@@ -21,7 +21,6 @@ function init() {
         const pmremGenerator = new THREE.PMREMGenerator(renderer);
         const envMap = pmremGenerator.fromEquirectangular(texture).texture;
         scene.environment = envMap;
-        // scene.background = envMap; // Uncomment if you want the environment as background
         texture.dispose();
         pmremGenerator.dispose();
     });
@@ -40,8 +39,7 @@ function init() {
     // Add flying point lights
     pointLight1 = new THREE.PointLight(0xffffff, 2, 100);
     pointLight2 = new THREE.PointLight(0xffffff, 2, 100);
-    pointLight3 = new THREE.PointLight(0xffffff, 2, 100);
-    scene.add(pointLight1, pointLight2, pointLight3);
+    scene.add(pointLight1, pointLight2);
 
     window.addEventListener('resize', onWindowResize, false);
 
@@ -71,12 +69,6 @@ function animate() {
         center.x + Math.sin(time * 0.7 + Math.PI / 3) * orbitRadius,
         center.y + Math.cos(time * 0.5 + Math.PI / 3) * orbitRadius * 0.5,
         center.z + Math.cos(time * 0.7 + Math.PI / 3) * orbitRadius
-    );
-
-    pointLight3.position.set(
-        center.x + Math.sin(time * 0.3 + 2 * Math.PI / 3) * orbitRadius,
-        center.y + Math.cos(time * 0.9 + 2 * Math.PI / 3) * orbitRadius * 0.5,
-        center.z + Math.cos(time * 0.3 + 2 * Math.PI / 3) * orbitRadius
     );
 
     controls.update();
